@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Stargazer.Database;
+using Stargazer.Services;
+using Stargazer.Views;
 
 namespace Stargazer
 {
@@ -16,10 +18,16 @@ namespace Stargazer
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<IRestService, RestService>();
+            builder.Services.AddSingleton<IPlanetsService, PlanetsService>();
+            builder.Services.AddSingleton<IStarsService, StarsService>();
+
             builder.Services.AddSingleton<CelestialDatabase>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<StarPage>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

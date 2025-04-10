@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Stargazer
+﻿namespace Stargazer
 {
     public static class Constants
     {
+        public const float GasGiantThreshold = 2000;
+
+        public const string ApiUrl = "https://api.api-ninjas.com/v1/";
+        public const string ApiKey = "oLT3O/t5LKiJh5H7ooMDJA==pGJEWqiH2HqTyUJ0";
+
         public const string DatabaseFilename = "Celestial.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Stargazer.Views.PlanetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Stargazer.Database.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:views="clr-namespace:Stargazer.Views"
+    Title="{Binding Name}"
+    x:DataType="models:Planet">
+
+    <ScrollView>
+        <Grid ColumnDefinitions="*,2*,*">
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource Headline}"
+                    Text="Edit Planet" />
+
+                <VerticalStackLayout Margin="0,30">
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Name:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry Grid.Column="1" Text="{Binding Name}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Mass:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding Mass}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Radius:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding Radius}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Period:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding Period}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Semi-Major Axis:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding SemiMajorAxis}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Temperature:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding Temperature}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Distance (LightYear):"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding DistanceLightYear}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Host Star Mass:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding HostStarMass}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Host Star Temperature:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            Grid.Column="1"
+                            Keyboard="Numeric"
+                            Text="{Binding HostStarTemperature}" />
+                    </Grid>
+
+                    <Grid
+                        Padding="10"
+                        ColumnDefinitions="*,2*"
+                        ColumnSpacing="20">
+                        <Label
+                            Text="Is Gas Giant:"
+                            VerticalOptions="Fill"
+                            VerticalTextAlignment="Center" />
+                        <Label Grid.Column="1" Text="{Binding IsGasGiant}" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout
+                    Padding="10"
+                    HorizontalOptions="Center"
+                    Spacing="25">
+                    <Button
+                        Clicked="OnSaveClicked"
+                        HorizontalOptions="Center"
+                        Text="Save" />
+
+                    <Button
+                        Clicked="OnDeleteClicked"
+                        HorizontalOptions="Center"
+                        Text="Delete" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
