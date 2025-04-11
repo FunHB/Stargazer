@@ -30,8 +30,6 @@ namespace Stargazer.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Trace.WriteLine(content);
-                    Trace.WriteLine(JsonSerializer.Deserialize<List<T>>(content, _serializerOptions));
                     return JsonSerializer.Deserialize<List<T>>(content, _serializerOptions).FirstOrDefault() ?? new() { Name = name };
                 }
             }

@@ -11,35 +11,97 @@ namespace Stargazer.Database.Models
 
         [JsonPropertyName("name")]
         [Column("Name"), NotNull]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("constellation")]
         [Column("Constellation")]
-        public string Constellation { get; set; }
+        public string Constellation
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("right_ascension")]
         [Column("RightAscension")]
-        public string RightAscension { get; set; }
+        public string RightAscension
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("declination")]
         [Column("Declination")]
-        public string Declination { get; set; }
+        public string Declination
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("apparent_magnitude")]
         [Column("ApparentMagnitude")]
-        public string ApparentMagnitude { get; set; }
+        public string ApparentMagnitude
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("absolute_magnitude")]
         [Column("AbsoluteMagnitude")]
-        public string AbsoluteMagnitude { get; set; }
+        public string AbsoluteMagnitude
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("distance_light_year")]
         [Column("DistanceLightYear")]
-        public string DistanceLightYear { get; set; }
+        public string DistanceLightYear
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("spectral_class")]
         [Column("SpectralClass")]
-        public string SpectralClass { get; set; }
+        public string SpectralClass
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
+
+        [Column("DateCreated")]
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+
+        [Column("LastModified")]
+        public DateTime LastModified { get; set; } = DateTime.Now;
 
         public Star() { }
         public Star(string name)

@@ -11,7 +11,14 @@ namespace Stargazer.Database.Models
 
         [JsonPropertyName("name")]
         [Column("Name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("mass")]
         [Column("Mass")]
@@ -21,6 +28,7 @@ namespace Stargazer.Database.Models
             {
                 if (value != 0 && Radius != 0)
                     IsGasGiant = Density < Constants.GasGiantThreshold;
+                LastModified = DateTime.Now;
                 field = value;
             }
         }
@@ -33,36 +41,85 @@ namespace Stargazer.Database.Models
             {
                 if (value != 0 && Mass != 0)
                     IsGasGiant = Density < Constants.GasGiantThreshold;
+                LastModified = DateTime.Now;
                 field = value;
             }
         }
 
         [JsonPropertyName("period")]
         [Column("Period")]
-        public double Period { get; set; }
+        public double Period
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("semi_major_axis")]
         [Column("SemiMajorAxis")]
-        public double SemiMajorAxis { get; set; }
+        public double SemiMajorAxis
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("temperature")]
         [Column("Temperature")]
-        public double Temperature { get; set; }
+        public double Temperature
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("distance_light_year")]
         [Column("DistanceLightYear")]
-        public double DistanceLightYear { get; set; }
+        public double DistanceLightYear
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("host_star_mass")]
         [Column("HostStarMass")]
-        public double HostStarMass { get; set; }
+        public double HostStarMass
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [JsonPropertyName("host_star_temperature")]
         [Column("HostStarTemperature")]
-        public double HostStarTemperature { get; set; }
+        public double HostStarTemperature
+        {
+            get; set
+            {
+                LastModified = DateTime.Now;
+                field = value;
+            }
+        }
 
         [Column("IsGasGiant")]
         public bool IsGasGiant { get; set; }
+
+        [Column("DateCreated")]
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+
+        [Column("LastModified")]
+        public DateTime LastModified { get; set; } = DateTime.Now;
 
         public Planet() { }
         public Planet(string name)
@@ -92,6 +149,6 @@ namespace Stargazer.Database.Models
             HostStarTemperature = hostStarTemperature;
         }
 
-        public double Density => Mass / ((4 / 3) * Math.PI * Math.Pow(Radius, 3));
+        private double Density => (Mass * Constants.JupiterMass) / ((4 / 3) * Math.PI * Math.Pow(Radius * Constants.JupiterRadius, 3));
     }
 }
