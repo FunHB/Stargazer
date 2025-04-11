@@ -90,8 +90,6 @@ namespace Stargazer.Views
 
             var pages = GetPages(allPages, PlanetsCurrentPage);
 
-            Trace.WriteLine($"{PlanetsCount}, [{string.Join(", ", allPages)}], [{string.Join(", ", pages)}]");
-
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 PlanetsPages.Clear();

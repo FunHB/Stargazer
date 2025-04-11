@@ -5,7 +5,7 @@
         public const int PageSize = 4;
 
         public const double JupiterMass = 1.898e27; // kg
-        public const double JupiterRadius = 69911; // km
+        public const double JupiterRadius = 69911000; // km
 
         public const float GasGiantThreshold = 2000;
 

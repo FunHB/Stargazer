@@ -35,7 +35,7 @@ namespace Stargazer.Services
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+                //Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
             return new() { Name = name };
