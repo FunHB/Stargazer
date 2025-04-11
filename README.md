@@ -4,7 +4,7 @@ Stargazer is a application to manage information about stars and planets.
 
 ## Features
 - Adding and deleting new Planets or Stars.
-- Fetching Planets or Stars from 3rd-party API by name.
+- Fetching Planets or Stars from 3rd-party API by name (Capitalization needed).
 - Edditing information of selected Planet or Star.
 - Listing all added Planets and Stars.
 - Sorting by name, date of last modification, or other unique for different types informations.
